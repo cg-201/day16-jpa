@@ -1,5 +1,7 @@
 package day16.jpa1;
 
+import java.util.Arrays;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,6 +19,11 @@ public class Main {
 		address.setState("dl");
 		address.setLocality("gandhi nagar");
 		
+		Contact c1 = new Contact();
+		c1.setPhoneNumber("212121");
+		Contact c2 = new Contact();
+		c2.setPhoneNumber("313131");
+		
 		Employee employee = new Employee();
 		employee.setName("virat");
 		employee.setEmail("virat@gmail.com");
@@ -24,6 +31,10 @@ public class Main {
 		
 		// complex object / Associated object / RelationShipt Object
 		employee.setAddress(address);
+		
+		employee.setContactList(Arrays.asList(c1, c2, c1));
+		
+		
 		
 		
 		manager.getTransaction().begin();
